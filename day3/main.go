@@ -14,6 +14,7 @@ func main() {
 		log.Fatalf("error reading file: %v", err)
 	}
 	contents := string(file)
+	// Regex to match mul([0-9]{1,3},[0-9]{1,3}) or don't() or do()
 	re := regexp.MustCompile(`(mul\(([0-9]{1,3}),([0-9]{1,3})\))|(don't\(\))|(do\(\))`)
 	matches := re.FindAllStringSubmatch(contents, -1)
 	var sum, sumOn int
